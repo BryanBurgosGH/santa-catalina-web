@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Nosotros">
+
+  <!-- Hero Nosotros -->
+  <section id="nosotros-hero" class="relative z-10 max-w-7xl mx-auto px-6 pt-24" style="background-color: var(--color-bg);">
+    
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-10" style="background-color: var(--color-primary);"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Texto -->
+      <div class="space-y-6">
+        <p id="nos-badge" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Quiénes somos</p>
+        <h1 id="nos-title" class="text-5xl md:text-6xl font-black leading-tight" style="color: var(--color-text);">
+          Comprometidos con<br/>
+          <span style="color: var(--color-primary);">tu bienestar</span>
+        </h1>
+        <p id="nos-desc" class="text-lg leading-relaxed" style="color: var(--color-text-subtle);">
+          Somos una clínica médica integral ubicada en Costa Rica, dedicada a brindar atención de calidad con calidez humana. Nuestro equipo de especialistas trabaja cada día para ofrecerte soluciones médicas completas en un solo lugar.
+        </p>
+      </div>
+
+      <!-- Imagen -->
+      <div id="nos-image" class="relative hidden md:block">
+        <div class="relative rounded-3xl overflow-hidden aspect-[4/3]">
+          <img
+            src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80"
+            alt="Equipo Clínica Santa Catalina"
+            class="w-full h-full object-cover"
+          />
+          <!-- Overlay -->
+          <div class="absolute inset-0 opacity-20" style="background-color: var(--color-primary);"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Misión, Visión, Valores -->
+  <section id="mvv-section" class="py-24 px-6" style="background-color: var(--color-bg-secondary);">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`,
+          title: "Misión",
+          desc: "Brindar atención médica integral, confiable y accesible, centrada en el paciente y su familia, con un equipo humano comprometido con la excelencia."
+        },
+        {
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>`,
+          title: "Visión",
+          desc: "Ser la clínica de referencia en Costa Rica, reconocida por la calidad de su atención, tecnología de punta y el bienestar integral de sus pacientes."
+        },
+        {
+          icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+          title: "Valores",
+          desc: "Integridad, empatía, excelencia y compromiso. Cada interacción con nuestros pacientes está guiada por el respeto y la dedicación genuina a su salud."
+        },
+      ].map(item => (
+        <div class="mvv-card p-8 rounded-2xl border space-y-4" style="background-color: var(--color-bg); border-color: var(--color-border);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: var(--color-primary-light);">
+            <svg class="w-6 h-6" style="color: var(--color-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={item.icon}/>
+          </div>
+          <h3 class="text-xl font-black" style="color: var(--color-text);">{item.title}</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-text-subtle);">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-24 px-6" style="background-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+      {[
+        { number: 10, suffix: "+", label: "Años de experiencia" },
+        { number: 12000, suffix: "+", label: "Pacientes atendidos" },
+        { number: 20, suffix: "+", label: "Especialidades" },
+        { number: 24, suffix: "/7", label: "Atención de urgencias" },
+      ].map(stat => (
+        <div class="nos-stat text-center">
+          <p class="text-5xl font-black text-white mb-2">
+            <span class="nos-stat-number" data-target={stat.number}>0</span>{stat.suffix}
+          </p>
+          <p class="text-sm font-medium text-white/70">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('#nos-badge',  { opacity: 0, y: 20, duration: 0.6 })
+    .from('#nos-title',  { opacity: 0, y: 40, duration: 0.8 }, '-=0.3')
+    .from('#nos-desc',   { opacity: 0, y: 30, duration: 0.6 }, '-=0.4')
+    .from('#nos-image',  { opacity: 0, x: 60, duration: 0.9 }, '-=0.6');
+
+  // Misión Visión Valores
+  gsap.from('.mvv-card', {
+    scrollTrigger: { trigger: '#mvv-section', start: 'top 75%' },
+    opacity: 0, y: 50, duration: 0.6, stagger: 0.15, ease: 'power3.out'
+  });
+
+  // Stats
+  gsap.utils.toArray('.nos-stat-number').forEach((el: any) => {
+    const target = parseInt(el.getAttribute('data-target'));
+    ScrollTrigger.create({
+      trigger: '.nos-stat',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          innerHTML: target,
+          duration: 2,
+          ease: 'power2.out',
+          snap: { innerHTML: 1 },
+        });
+      }
+    });
+  });
+
+  // Equipo
+  gsap.from('#equipo-header', {
+    scrollTrigger: { trigger: '#equipo-section', start: 'top 75%' },
+    opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+  });
+
+  gsap.from('.doctor-card', {
+    scrollTrigger: { trigger: '#equipo-section', start: 'top 70%' },
+    opacity: 0, y: 50, duration: 0.6, stagger: 0.15, ease: 'power3.out'
+  });
+</script>

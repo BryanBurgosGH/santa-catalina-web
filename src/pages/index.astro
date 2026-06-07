@@ -1,17 +1,445 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import { FlaskConical, Microscope, Radio, Stethoscope, ShieldCheck, Eye } from 'lucide-astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Inicio">
+
+  <!-- Hero -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden" style="background-color: var(--color-bg);">
+    
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-20" style="background-color: var(--color-primary);"></div>
+      <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full blur-3xl opacity-10" style="background-color: var(--color-primary);"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-24 grid md:grid-cols-2 gap-12 items-center w-full">
+      
+      <!-- Texto -->
+      <div class="space-y-8">
+        
+        <!-- Badge -->
+        <div id="hero-badge" class="inline-flex items-center gap-2 border text-sm font-medium px-4 py-2 rounded-full" style="background-color: var(--color-primary-light); border-color: var(--color-primary); color: var(--color-primary);">
+          <span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--color-primary);"></span>
+          Atención médica de calidad en Costa Rica
+        </div>
+
+        <!-- Título -->
+        <h1 id="hero-title" class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight" style="color: var(--color-text);">
+          Tu salud,<br/>
+          <span style="color: var(--color-primary);">nuestra</span><br/>
+          prioridad.
+        </h1>
+
+        <!-- Descripción -->
+        <p id="hero-desc" class="text-lg max-w-md leading-relaxed" style="color: var(--color-text-subtle);">
+          Más de 10 años brindando atención médica integral, con especialistas comprometidos con tu bienestar y el de tu familia.
+        </p>
+
+        <!-- CTAs -->
+        <div id="hero-ctas" class="flex flex-wrap gap-4">
+          <a 
+            href="/contacto" 
+            class="text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-105"
+            style="background-color: var(--color-primary);"
+            onmouseover="this.style.backgroundColor='var(--color-primary-hover)'"
+            onmouseout="this.style.backgroundColor='var(--color-primary)'"
+          >
+            Agendar cita
+          </a>
+          <a 
+            href="/servicios" 
+            class="font-semibold px-8 py-4 rounded-full border transition-all duration-200 hover:scale-105"
+            style="border-color: var(--color-border); color: var(--color-text-subtle);"
+            onmouseover="this.style.borderColor='var(--color-primary)'; this.style.color='var(--color-primary)'"
+            onmouseout="this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-subtle)'"
+          >
+            Ver servicios
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div id="hero-stats" class="flex gap-8 pt-4">
+          <div>
+            <p class="text-3xl font-black" style="color: var(--color-text);">10<span style="color: var(--color-primary);">+</span></p>
+            <p class="text-sm" style="color: var(--color-text-subtle);">Años de experiencia</p>
+          </div>
+          <div class="w-px" style="background-color: var(--color-border);"></div>
+          <div>
+            <p class="text-3xl font-black" style="color: var(--color-text);">12k<span style="color: var(--color-primary);">+</span></p>
+            <p class="text-sm" style="color: var(--color-text-subtle);">Pacientes atendidos</p>
+          </div>
+          <div class="w-px" style="background-color: var(--color-border);"></div>
+          <div>
+            <p class="text-3xl font-black" style="color: var(--color-text);">20<span style="color: var(--color-primary);">+</span></p>
+            <p class="text-sm" style="color: var(--color-text-subtle);">Especialidades</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Imagen -->
+      <div id="hero-image" class="relative hidden md:block">
+        <div class="relative w-full aspect-square max-w-lg mx-auto">
+          <!-- Círculo de fondo -->
+          <div class="absolute inset-8 rounded-full opacity-30" style="background-color: var(--color-primary);"></div>
+          <!-- Imagen -->
+          <img 
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" 
+            alt="Médico Clínica Santa Catalina"
+            class="relative z-10 w-full h-full object-cover object-top rounded-3xl"
+          />
+          <!-- Card flotante -->
+          <div class="absolute -bottom-4 -left-4 z-20 rounded-2xl p-4 shadow-xl border" style="background-color: var(--color-bg); border-color: var(--color-border);">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color: var(--color-primary-light);">
+                <svg class="w-5 h-5" style="color: var(--color-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold" style="color: var(--color-text);">Atención 24/7</p>
+                <p class="text-xs" style="color: var(--color-text-subtle);">Urgencias disponibles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animación de entrada del Hero
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+	
+	// Animación de entrada de la sección de servicios
+	gsap.from('#servicios', {
+		scrollTrigger: {
+			trigger: '#servicios',
+			start: 'top 70%',
+		},
+		opacity: 0,
+		y: 30,
+		duration: 1,
+		ease: 'power3.out'
+	});
+
+    tl.from('#hero-badge',  { opacity: 0, y: 20, duration: 0.6 })
+      .from('#hero-title',  { opacity: 0, y: 40, duration: 0.8 }, '-=0.3')
+      .from('#hero-desc',   { opacity: 0, y: 30, duration: 0.6 }, '-=0.4')
+      .from('#hero-ctas',   { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+      .from('#hero-stats',  { opacity: 0, y: 20, duration: 0.6 }, '-=0.3')
+      .from('#hero-image',  { opacity: 0, x: 60, duration: 0.9 }, '-=0.8');
+
+	// Contadores animados para las estadísticas
+	gsap.utils.toArray('.stat-number').forEach((el: any) => {
+      const target = parseInt(el.getAttribute('data-target'));
+      
+      ScrollTrigger.create({
+        trigger: '#stats-section',
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          gsap.to(el, {
+            innerHTML: target,
+            duration: 2,
+            ease: 'power2.out',
+            snap: { innerHTML: 1 },
+          });
+        }
+      });
+    });
+
+    // Animación de entrada de la sección de estadísticas
+    gsap.from('.stat-item', {
+      scrollTrigger: {
+        trigger: '#stats-section',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: 'power3.out'
+    });
+
+	    // Swiper promociones
+		import Swiper from 'swiper';
+    import { Pagination, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/pagination';
+
+    new Swiper('.promos-swiper', {
+      modules: [Pagination, Autoplay],
+      slidesPerView: 1.2,
+      spaceBetween: 20,
+      centeredSlides: false,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        640:  { slidesPerView: 2, spaceBetween: 24 },
+        1024: { slidesPerView: 3, spaceBetween: 24 },
+      }
+    });
+
+    // Animación entrada header
+    gsap.from('#promo-header', {
+      scrollTrigger: { trigger: '#promociones-section', start: 'top 75%' },
+      opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+    });
+
+	    // Animación CTA
+		gsap.from('#cta-content', {
+      scrollTrigger: { trigger: '#cta-section', start: 'top 75%' },
+      opacity: 0, y: 50, duration: 0.9, ease: 'power3.out'
+    });
+
+    gsap.from('#cta-buttons', {
+      scrollTrigger: { trigger: '#cta-section', start: 'top 70%' },
+      opacity: 0, y: 30, duration: 0.6, delay: 0.3, ease: 'power3.out'
+    });
+  </script>
+
+	<!--  Sección de servicios -->
+	<section id="servicios" class="py-24 px-6" style="background-color: var(--color-bg-secondary);">
+		<div class="max-w-7xl mx-auto">
+	
+		  <!-- Header sección -->
+		  <div id="servicios-header" class="text-center space-y-4 mb-16">
+			<p class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Lo que ofrecemos</p>
+			<h2 class="text-4xl md:text-5xl font-black" style="color: var(--color-text);">
+			  Nuestros <span style="color: var(--color-primary);">servicios</span>
+			</h2>
+			<p class="text-lg max-w-xl mx-auto" style="color: var(--color-text-subtle);">
+			  <!-- Atención integral en un solo lugar, con especialistas dedicados a tu bienestar. -->
+			  Ponemos a tu disposición una amplia red de servicios médicos y especialidades, diseñada para brindarte atención oportuna y soluciones integrales en un solo lugar.
+			</p>
+		  </div>
+	
+		        <!-- Grid de cards -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{[
+					  {
+						title: "Laboratorio y Farmacia",
+						desc: "Análisis clínicos precisos y medicamentos disponibles en un solo lugar.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/>`
+					  },
+					  {
+						title: "Gastroenterología",
+						desc: "Diagnóstico y tratamiento de enfermedades del sistema digestivo.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>`
+					  },
+					  {
+						title: "Radiología e Imágenes",
+						desc: "Tecnología de imagen avanzada para diagnósticos precisos y rápidos.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`
+					  },
+					  {
+						title: "Procedimientos Ambulatorios",
+						desc: "Intervenciones médicas sin necesidad de hospitalización prolongada.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`
+					  },
+					  {
+						title: "Chequeos Preventivos",
+						desc: "Evaluaciones integrales para detectar y prevenir enfermedades a tiempo.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`
+					  },
+					  {
+						title: "Centro de Endoscopía",
+						desc: "Procedimientos endoscópicos con equipos de última generación.",
+						svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`
+					  },
+					].map(servicio => (
+					  <div
+						class="servicio-card group p-6 rounded-2xl border cursor-pointer transition-all duration-300 hover:-translate-y-1"
+						style="background-color: var(--color-bg); border-color: var(--color-border);"
+						onmouseover="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 20px 40px rgba(37,99,235,0.1)'"
+						onmouseout="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+					  >
+						<div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background-color: var(--color-primary-light);">
+						  <svg class="w-6 h-6" style="color: var(--color-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={servicio.svg} />
+						</div>
+						<h3 class="text-lg font-bold mb-2" style="color: var(--color-text);">{servicio.title}</h3>
+						<p class="text-sm leading-relaxed" style="color: var(--color-text-subtle);">{servicio.desc}</p>
+						<div class="mt-4 flex items-center gap-1 text-sm font-semibold" style="color: var(--color-primary);">
+						  Ver más
+						  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 18l6-6-6-6"/>
+						  </svg>
+						</div>
+					  </div>
+					))}
+				  </div>
+	</section>
+	
+	<!-- Stats -->
+  	<section id="stats-section" class="py-24 px-6" style="background-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+      {[
+        { number: 10, suffix: "+", label: "Años de experiencia" },
+        { number: 12000, suffix: "+", label: "Pacientes atendidos" },
+        { number: 20, suffix: "+", label: "Especialidades" },
+        { number: 24, suffix: "/7", label: "Atención de urgencias" },
+      ].map(stat => (
+        <div class="stat-item text-center">
+          <p class="text-5xl font-black text-white mb-2">
+            <span class="stat-number" data-target={stat.number}>0</span>{stat.suffix}
+          </p>
+          <p class="text-sm font-medium text-white/70">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  	</section>
+
+    <!-- Promociones -->
+	<section id="promociones-section" class="py-24 overflow-hidden" style="background-color: var(--color-bg);">
+		<div class="max-w-7xl mx-auto px-6">
+	
+		  <!-- Header -->
+		  <div id="promo-header" class="text-center space-y-4 mb-16">
+			<p class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Ofertas especiales</p>
+			<h2 class="text-4xl md:text-5xl font-black" style="color: var(--color-text);">
+			  Aprovecha nuestras <span style="color: var(--color-primary);">promociones</span>
+			</h2>
+			<p class="text-lg max-w-xl mx-auto" style="color: var(--color-text-subtle);">
+			  Cuida tu salud sin preocuparte por el costo. Tenemos planes accesibles para ti y tu familia.
+			</p>
+		  </div>
+	
+		<!-- Swiper -->
+		<div class="swiper promos-swiper">
+		  <div class="swiper-wrapper pb-12">
+			{[
+				{
+				  badge: "-30%",
+				  title: "Chequeo Completo",
+				  desc: "Evaluación médica integral con laboratorio, electrocardiograma y consulta general.",
+				  price: "₡35,000",
+				  original: "₡50,000",
+				},
+				{
+				  badge: "-20%",
+				  title: "Chequeo Básico",
+				  desc: "Consulta general con laboratorio básico y toma de signos vitales.",
+				  price: "₡18,000",
+				  original: "₡22,500",
+				},
+				{
+				  badge: "-15%",
+				  title: "Perfil Lipídico",
+				  desc: "Análisis completo de colesterol, triglicéridos y glucosa en sangre.",
+				  price: "₡12,000",
+				  original: "₡14,000",
+				},
+				{
+				  badge: "-25%",
+				  title: "Control Diabetes",
+				  desc: "Seguimiento completo con glucómetro, HbA1c y consulta con especialista.",
+				  price: "₡28,000",
+				  original: "₡37,000",
+				},
+			  ].map(promo => (
+				<div class="swiper-slide h-auto">
+				  <div
+					class="promo-card relative rounded-2xl border p-8 flex flex-col gap-4 h-full transition-all duration-300 cursor-pointer"
+					style="background-color: var(--color-bg); border-color: var(--color-border);"
+					onmouseover="
+					  this.style.backgroundColor='var(--color-primary)';
+					  this.style.borderColor='var(--color-primary)';
+					  this.style.boxShadow='0 20px 40px rgba(37,99,235,0.3)';
+					  this.querySelectorAll('[data-title]').forEach(el => el.style.color='white');
+					  this.querySelectorAll('[data-desc]').forEach(el => el.style.color='rgba(255,255,255,0.8)');
+					  this.querySelectorAll('[data-price]').forEach(el => el.style.color='white');
+					  this.querySelectorAll('[data-original]').forEach(el => el.style.color='rgba(255,255,255,0.5)');
+					  this.querySelectorAll('[data-badge]').forEach(el => { el.style.backgroundColor='rgba(255,255,255,0.2)'; el.style.color='white'; });
+					  this.querySelectorAll('[data-cta]').forEach(el => { el.style.backgroundColor='white'; el.style.color='var(--color-primary)'; });
+					"
+					onmouseout="
+					  this.style.backgroundColor='var(--color-bg)';
+					  this.style.borderColor='var(--color-border)';
+					  this.style.boxShadow='none';
+					  this.querySelectorAll('[data-title]').forEach(el => el.style.color='var(--color-text)');
+					  this.querySelectorAll('[data-desc]').forEach(el => el.style.color='var(--color-text-subtle)');
+					  this.querySelectorAll('[data-price]').forEach(el => el.style.color='var(--color-text)');
+					  this.querySelectorAll('[data-original]').forEach(el => el.style.color='var(--color-text-subtle)');
+					  this.querySelectorAll('[data-badge]').forEach(el => { el.style.backgroundColor='var(--color-primary-light)'; el.style.color='var(--color-primary)'; });
+					  this.querySelectorAll('[data-cta]').forEach(el => { el.style.backgroundColor='var(--color-primary)'; el.style.color='white'; });
+					"
+				  >
+					<span data-badge class="absolute top-6 right-6 text-xs font-black px-3 py-1 rounded-full" style="background-color: var(--color-primary-light); color: var(--color-primary);">
+					  {promo.badge}
+					</span>
+	  
+					<h3 data-title class="text-xl font-black" style="color: var(--color-text);">{promo.title}</h3>
+					<p data-desc class="text-sm leading-relaxed flex-1" style="color: var(--color-text-subtle);">{promo.desc}</p>
+	  
+					<div>
+					  <p data-price class="text-3xl font-black" style="color: var(--color-text);">{promo.price}</p>
+					  <p data-original class="text-sm line-through" style="color: var(--color-text-subtle);">{promo.original}</p>
+					</div>
+	  
+					<a data-cta href="/contacto"
+					  class="text-center text-sm font-semibold py-3 rounded-full transition-all duration-200 hover:scale-105"
+					  style="background-color: var(--color-primary); color: white;"
+					>
+					  Adquirir promoción
+					</a>
+				  </div>
+				</div>
+			  ))}
+		  </div>
+	
+		  <!-- Dots -->
+		  <div class="swiper-pagination"></div>
+		</div>
+		</div>
+	</section>
+    
+	<!-- CTA Final -->
+    <section id="cta-section" class="py-24 px-6" style="background-color: var(--color-bg-secondary);">
+		<div class="max-w-7xl mx-auto text-center space-y-8">
+	
+		  <div id="cta-content" class="space-y-6">
+			<p class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">¿Listo para comenzar?</p>
+			<h2 class="text-4xl md:text-6xl font-black leading-tight" style="color: var(--color-text);">
+			  Tu bienestar está a<br/>
+			  <span style="color: var(--color-primary);">un paso de distancia</span>
+			</h2>
+			<p class="text-lg max-w-xl mx-auto" style="color: var(--color-text-subtle);">
+			  Agenda tu cita hoy y recibe atención médica de calidad con los mejores especialistas de Costa Rica.
+			</p>
+		  </div>
+	
+		  <div id="cta-buttons" class="flex flex-wrap justify-center gap-4">
+			<a
+			  href="/contacto"
+			  class="text-white font-semibold px-10 py-4 rounded-full transition-all duration-200 hover:scale-105"
+			  style="background-color: var(--color-primary);"
+			  onmouseover="this.style.backgroundColor='var(--color-primary-hover)'"
+			  onmouseout="this.style.backgroundColor='var(--color-primary)'"
+			>
+			  Agendar cita ahora
+			</a>
+			<a
+			  href="tel:+50640324032"
+			  class="font-semibold px-10 py-4 rounded-full border transition-all duration-200 hover:scale-105"
+			  style="border-color: var(--color-border); color: var(--color-text-subtle);"
+			  onmouseover="this.style.borderColor='var(--color-primary)'; this.style.color='var(--color-primary)'"
+			  onmouseout="this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-subtle)'"
+			>
+			  📞 Llamar ahora
+			</a>
+		  </div>
+	
+		</div>
+	</section>
+
+</Layout>

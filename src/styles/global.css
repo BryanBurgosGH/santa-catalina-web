@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* ================================
+   TOKENS — Libro de marca
+   Clínica Santa Catalina
+================================ */
+
+:root {
+  /* Primario */
+  --color-primary:       #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --color-primary-light: #EFF6FF;
+
+  /* Neutros - Light mode */
+  --color-bg:            #FFFFFF;
+  --color-bg-secondary:  #F8FAFC;
+  --color-border:        #E2E8F0;
+  --color-text:          #0F172A;
+  --color-text-subtle:   #64748B;
+
+  /* Feedback */
+  --color-success:       #10B981;
+  --color-error:         #EF4444;
+}
+
+.dark {
+  /* Primario (se mantiene) */
+  --color-primary:       #3B82F6;
+  --color-primary-hover: #2563EB;
+  --color-primary-light: #1E3A5F;
+
+  /* Neutros - Dark mode */
+  --color-bg:            #0A0F1E;
+  --color-bg-secondary:  #0F172A;
+  --color-border:        #1E293B;
+  --color-text:          #F1F5F9;
+  --color-text-subtle:   #94A3B8;
+
+  /* Feedback */
+  --color-success:       #10B981;
+  --color-error:         #EF4444;
+}
+
+/* ================================
+   BASE
+================================ */
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+}

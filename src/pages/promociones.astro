@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Promociones">
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-24 px-6 overflow-hidden" style="background-color: var(--color-bg);">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-10" style="background-color: var(--color-primary);"></div>
+    </div>
+    <!--  -->
+    <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+      <p id="promo-badge" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Ofertas especiales</p>
+      <h1 id="promo-title" class="text-5xl md:text-6xl font-black leading-tight" style="color: var(--color-text);">
+        Promociones para<br/>
+        <span style="color: var(--color-primary);">cuidar tu salud</span>
+      </h1>
+      <p id="promo-desc" class="text-lg" style="color: var(--color-text-subtle);">
+        Cuida tu salud sin preocuparte por el costo. Tenemos planes accesibles para ti y toda tu familia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <section class="px-6 pb-6" style="background-color: var(--color-bg);">
+    <div class="max-w-7xl mx-auto flex flex-wrap gap-3 justify-center">
+      {["Todas", "Chequeos", "Laboratorio", "Especialidades", "Paquetes"].map((filtro, i) => (
+        <button
+          class="filtro-btn px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200"
+          style={i === 0
+            ? "background-color: var(--color-primary); color: white; border-color: var(--color-primary);"
+            : "background-color: transparent; color: var(--color-text-subtle); border-color: var(--color-border);"}
+        >
+          {filtro}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- Grid de promociones -->
+  <section id="promos-grid" class="py-16 px-6" style="background-color: var(--color-bg);">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          badge: "-30%",
+          categoria: "Chequeos",
+          title: "Chequeo Completo",
+          desc: "Evaluación médica integral con laboratorio, electrocardiograma y consulta general.",
+          precio: "₡35,000",
+          original: "₡50,000",
+          vigencia: "Válido hasta el 31 de julio 2025",
+        },
+        {
+          badge: "-20%",
+          categoria: "Chequeos",
+          title: "Chequeo Básico",
+          desc: "Consulta general con laboratorio básico y toma de signos vitales.",
+          precio: "₡18,000",
+          original: "₡22,500",
+          vigencia: "Válido hasta el 31 de julio 2025",
+        },
+        {
+          badge: "-15%",
+          categoria: "Laboratorio",
+          title: "Perfil Lipídico",
+          desc: "Análisis completo de colesterol, triglicéridos y glucosa en sangre.",
+          precio: "₡12,000",
+          original: "₡14,000",
+          vigencia: "Válido hasta el 30 de agosto 2025",
+        },
+        {
+          badge: "-25%",
+          categoria: "Especialidades",
+          title: "Control Diabetes",
+          desc: "Seguimiento completo con glucómetro, HbA1c y consulta con especialista.",
+          precio: "₡28,000",
+          original: "₡37,000",
+          vigencia: "Válido hasta el 30 de agosto 2025",
+        },
+        {
+          badge: "-10%",
+          categoria: "Paquetes",
+          title: "Plan Familiar",
+          desc: "Chequeo básico para 4 miembros de la familia con descuento especial.",
+          precio: "₡60,000",
+          original: "₡66,000",
+          vigencia: "Válido hasta el 30 de septiembre 2025",
+        },
+        {
+          badge: "-35%",
+          categoria: "Laboratorio",
+          title: "Perfil Tiroideo",
+          desc: "Evaluación completa de la función tiroidea con TSH, T3 y T4.",
+          precio: "₡15,000",
+          original: "₡23,000",
+          vigencia: "Válido hasta el 30 de septiembre 2025",
+        },
+      ].map(promo => (
+        <div
+          class="promo-card relative rounded-2xl border p-8 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+          style="background-color: var(--color-bg-secondary); border-color: var(--color-border);"
+          onmouseover="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 20px 40px rgba(37,99,235,0.1)'; this.style.backgroundColor='var(--color-primary)'; this.querySelectorAll('[data-text]').forEach(el => el.style.color='white'); this.querySelectorAll('[data-subtle]').forEach(el => el.style.color='rgba(255,255,255,0.7)'); this.querySelectorAll('[data-badge]').forEach(el => { el.style.backgroundColor='rgba(255,255,255,0.2)'; el.style.color='white'; }); this.querySelectorAll('[data-cta]').forEach(el => { el.style.backgroundColor='white'; el.style.color='var(--color-primary)'; });"
+          onmouseout="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'; this.style.backgroundColor='var(--color-bg-secondary)'; this.querySelectorAll('[data-text]').forEach(el => el.style.color='var(--color-text)'); this.querySelectorAll('[data-subtle]').forEach(el => el.style.color='var(--color-text-subtle)'); this.querySelectorAll('[data-badge]').forEach(el => { el.style.backgroundColor='var(--color-primary-light)'; el.style.color='var(--color-primary)'; }); this.querySelectorAll('[data-cta]').forEach(el => { el.style.backgroundColor='var(--color-primary)'; el.style.color='white'; });"
+        >
+          <!-- Badge descuento -->
+          <span data-badge class="absolute top-6 right-6 text-xs font-black px-3 py-1 rounded-full transition-all duration-300" style="background-color: var(--color-primary-light); color: var(--color-primary);">
+            {promo.badge}
+          </span>
+
+          <!-- Categoría -->
+          <p data-subtle class="text-xs font-semibold uppercase tracking-widest transition-colors duration-300" style="color: var(--color-text-subtle);">{promo.categoria}</p>
+
+          <h3 data-text class="text-xl font-black transition-colors duration-300" style="color: var(--color-text);">{promo.title}</h3>
+          <p data-subtle class="text-sm leading-relaxed flex-1 transition-colors duration-300" style="color: var(--color-text-subtle);">{promo.desc}</p>
+
+          <div>
+            <p data-text class="text-3xl font-black transition-colors duration-300" style="color: var(--color-text);">{promo.precio}</p>
+            <p data-subtle class="text-sm line-through transition-colors duration-300" style="color: var(--color-text-subtle);">{promo.original}</p>
+          </div>
+
+          <p data-subtle class="text-xs transition-colors duration-300" style="color: var(--color-text-subtle);">{promo.vigencia}</p>
+
+          <a data-cta href="/contacto"
+            class="text-center text-sm font-semibold py-3 rounded-full transition-all duration-300"
+            style="background-color: var(--color-primary); color: white;"
+          >
+            Adquirir promoción
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('#promo-badge', { opacity: 0, y: 20, duration: 0.6 })
+    .from('#promo-title', { opacity: 0, y: 40, duration: 0.8 }, '-=0.3')
+    .from('#promo-desc',  { opacity: 0, y: 30, duration: 0.6 }, '-=0.4');
+
+  gsap.from('.filtro-btn', {
+    opacity: 0, y: 20, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.6
+  });
+
+  gsap.from('.promo-card', {
+    scrollTrigger: { trigger: '#promos-grid', start: 'top 75%' },
+    opacity: 0, y: 50, duration: 0.6, stagger: 0.1, ease: 'power3.out'
+  });
+</script>

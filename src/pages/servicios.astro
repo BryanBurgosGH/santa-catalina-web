@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Servicios">
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-24 px-6 overflow-hidden" style="background-color: var(--color-bg);">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-10" style="background-color: var(--color-primary);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+      <p id="serv-badge" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Lo que ofrecemos</p>
+      <h1 id="serv-title" class="text-5xl md:text-6xl font-black leading-tight" style="color: var(--color-text);">
+        Atención integral<br/>
+        <span style="color: var(--color-primary);">en un solo lugar</span>
+      </h1>
+      <p id="serv-desc" class="text-lg" style="color: var(--color-text-subtle);">
+        Más de 20 especialidades médicas disponibles para ti y tu familia, con tecnología de diagnóstico avanzada y especialistas comprometidos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Servicios principales -->
+  <section id="serv-principales" class="py-24 px-6" style="background-color: var(--color-bg-secondary);">
+    <div class="max-w-7xl mx-auto">
+
+      <div id="serv-header" class="text-center space-y-4 mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest" style="color: var(--color-primary);">Servicios destacados</p>
+        <h2 class="text-4xl md:text-5xl font-black" style="color: var(--color-text);">
+          Nuestras <span style="color: var(--color-primary);">especialidades</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            title: "Laboratorio y Farmacia",
+            desc: "Contamos con laboratorio clínico de última generación para análisis de sangre, orina, cultivos y más. Nuestra farmacia ofrece medicamentos a precios accesibles directamente en la clínica.",
+            items: ["Análisis de sangre completos", "Cultivos y microbiología", "Farmacia in situ", "Resultados en línea"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/>`
+          },
+          {
+            title: "Gastroenterología",
+            desc: "Diagnóstico y tratamiento integral de enfermedades del sistema digestivo con endoscopías, colonoscopías y tratamientos especializados para cada paciente.",
+            items: ["Endoscopía digestiva", "Colonoscopía", "Tratamiento de reflujo", "Enfermedades inflamatorias"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>`
+          },
+          {
+            title: "Radiología e Imágenes",
+            desc: "Tecnología de imagen avanzada para diagnósticos precisos. Rayos X, ultrasonidos y estudios especializados realizados por radiólogos certificados.",
+            items: ["Rayos X digitales", "Ultrasonido", "Doppler vascular", "Informes digitales"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`
+          },
+          {
+            title: "Procedimientos Ambulatorios",
+            desc: "Intervenciones médicas seguras sin necesidad de hospitalización prolongada. Nuestro equipo garantiza tu comodidad y recuperación rápida.",
+            items: ["Cirugía ambulatoria", "Procedimientos menores", "Recuperación monitoreada", "Alta el mismo día"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`
+          },
+          {
+            title: "Chequeos Preventivos",
+            desc: "Evaluaciones médicas integrales diseñadas para detectar enfermedades en etapas tempranas. Invierte en tu salud antes de que sea necesario.",
+            items: ["Chequeo básico", "Chequeo completo", "Perfil cardiovascular", "Chequeo pediátrico"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`
+          },
+          {
+            title: "Centro de Endoscopía",
+            desc: "Centro especializado con equipos de última generación para procedimientos endoscópicos del tracto digestivo superior e inferior.",
+            items: ["Endoscopía alta", "Endoscopía baja", "Sedación consciente", "Biopsia guiada"],
+            svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`
+          },
+        ].map(servicio => (
+          <div
+            class="serv-card group rounded-2xl border p-8 flex flex-col gap-6 transition-all duration-300 hover:-translate-y-1"
+            style="background-color: var(--color-bg); border-color: var(--color-border);"
+            onmouseover="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 20px 40px rgba(37,99,235,0.1)'"
+            onmouseout="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+          >
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background-color: var(--color-primary-light);">
+                <svg class="w-6 h-6" style="color: var(--color-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={servicio.svg}/>
+              </div>
+              <h3 class="text-xl font-black pt-2" style="color: var(--color-text);">{servicio.title}</h3>
+            </div>
+
+            <p class="text-sm leading-relaxed" style="color: var(--color-text-subtle);">{servicio.desc}</p>
+
+            <ul class="space-y-2">
+              {servicio.items.map(item => (
+                <li class="flex items-center gap-2 text-sm" style="color: var(--color-text-subtle);">
+                  <svg class="w-4 h-4 shrink-0" style="color: var(--color-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="/contacto"
+              class="mt-auto text-sm font-semibold flex items-center gap-1 transition-all duration-200"
+              style="color: var(--color-primary);"
+            >
+              Agendar cita
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 18l6-6-6-6"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6" style="background-color: var(--color-primary);">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      <h2 class="text-4xl md:text-5xl font-black text-white leading-tight">
+        ¿No encontraste lo que buscabas?
+      </h2>
+      <p class="text-lg text-white/80">
+        Contamos con más de 20 especialidades. Contáctanos y te orientamos al especialista indicado para ti.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-flex text-white font-semibold px-10 py-4 rounded-full border-2 border-white/50 hover:border-white transition-all duration-200 hover:scale-105"
+      >
+        Consultar disponibilidad
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('#serv-badge', { opacity: 0, y: 20, duration: 0.6 })
+    .from('#serv-title', { opacity: 0, y: 40, duration: 0.8 }, '-=0.3')
+    .from('#serv-desc',  { opacity: 0, y: 30, duration: 0.6 }, '-=0.4');
+
+  gsap.from('#serv-header', {
+    scrollTrigger: { trigger: '#serv-principales', start: 'top 75%' },
+    opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+  });
+
+  gsap.from('.serv-card', {
+    scrollTrigger: { trigger: '#serv-principales', start: 'top 70%' },
+    opacity: 0, y: 50, duration: 0.6, stagger: 0.12, ease: 'power3.out'
+  });
+</script>

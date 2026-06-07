@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Página no encontrada">
+  <section class="min-h-screen flex items-center justify-center px-6" style="background-color: var(--color-bg);">
+    <div class="max-w-2xl mx-auto text-center space-y-8">
+
+      <p id="err-num" class="text-9xl font-black " style="font-size:4rem; color: var(--color-primary);">404</p>
+
+      <div id="err-text" class="space-y-4">
+        <h1 class="text-4xl font-black" style="color: var(--color-text);">Página no encontrada</h1>
+        <p class="text-lg" style="color: var(--color-text-subtle);">
+          La página que buscas no existe o fue movida. Regresa al inicio y encuentra lo que necesitas.
+        </p>
+      </div>
+
+      <div id="err-ctas" class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/"
+          class="text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-105"
+          style="background-color: var(--color-primary);"
+          onmouseover="this.style.backgroundColor='var(--color-primary-hover)'"
+          onmouseout="this.style.backgroundColor='var(--color-primary)'"
+        >
+          Volver al inicio
+        </a>
+        <a
+          href="/contacto"
+          class="font-semibold px-8 py-4 rounded-full border transition-all duration-200 hover:scale-105"
+          style="border-color: var(--color-border); color: var(--color-text-subtle);"
+          onmouseover="this.style.borderColor='var(--color-primary)'; this.style.color='var(--color-primary)'"
+          onmouseout="this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-subtle)'"
+        >
+          Contactarnos
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from('#err-num',  { opacity: 0, scale: 0.5, duration: 0.8 })
+    .from('#err-text', { opacity: 0, y: 30, duration: 0.6 }, '-=0.3')
+    .from('#err-ctas', { opacity: 0, y: 20, duration: 0.5 }, '-=0.3');
+</script>

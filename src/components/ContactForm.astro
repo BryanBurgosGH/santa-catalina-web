@@ -1,78 +1,85 @@
 <div id="contact-form" class="p-8 rounded-2xl border" style="background-color: var(--color-bg-secondary); border-color: var(--color-border);">
     <h2 class="text-2xl font-black mb-8" style="color: var(--color-text);">Enviar mensaje</h2>
 
-    <form id="contact-form" class="space-y-5">
-          
+    <form id="contact-form-el" class="space-y-5" novalidate>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="space-y-2">
-            <label class="text-sm font-medium" style="color: var(--color-text);">Nombre completo</label>
+            <label for="input-nombre" class="text-sm font-medium" style="color: var(--color-text);">Nombre completo</label>
             <input
               type="text"
+              id="input-nombre"
               name="nombre"
               placeholder="Juan Pérez"
-              required
+              autocomplete="name"
               class="w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200"
               style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-text);"
-              onfocus="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)'"
-              onblur="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+              aria-describedby="error-nombre"
             />
+            <span class="field-error" id="error-nombre" role="alert"></span>
           </div>
           <div class="space-y-2">
-            <label class="text-sm font-medium" style="color: var(--color-text);">Correo electrónico</label>
+            <label for="input-email" class="text-sm font-medium" style="color: var(--color-text);">Correo electrónico</label>
             <input
               type="email"
+              id="input-email"
               name="email"
               placeholder="juan@correo.com"
-              required
+              autocomplete="email"
               class="w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200"
               style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-text);"
-              onfocus="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)'"
-              onblur="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+              aria-describedby="error-email"
             />
+            <span class="field-error" id="error-email" role="alert"></span>
           </div>
         </div>
-      
+
         <div class="space-y-2">
-          <label class="text-sm font-medium" style="color: var(--color-text);">Teléfono</label>
+          <label for="input-telefono" class="text-sm font-medium" style="color: var(--color-text);">
+            Teléfono
+            <span style="color: var(--color-text-subtle); font-weight: 400;">(opcional)</span>
+          </label>
           <input
             type="tel"
+            id="input-telefono"
             name="telefono"
             placeholder="(506) 8888-8888"
+            autocomplete="tel"
             class="w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200"
             style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-text);"
-            onfocus="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)'"
-            onblur="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+            aria-describedby="error-telefono"
           />
+          <span class="field-error" id="error-telefono" role="alert"></span>
         </div>
-      
+
         <div class="space-y-2">
-          <label class="text-sm font-medium" style="color: var(--color-text);">Asunto</label>
+          <label for="input-asunto" class="text-sm font-medium" style="color: var(--color-text);">Asunto</label>
           <input
             type="text"
+            id="input-asunto"
             name="asunto"
             placeholder="¿En qué podemos ayudarte?"
-            required
             class="w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200"
             style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-text);"
-            onfocus="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)'"
-            onblur="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+            aria-describedby="error-asunto"
           />
+          <span class="field-error" id="error-asunto" role="alert"></span>
         </div>
-      
+
         <div class="space-y-2">
-          <label class="text-sm font-medium" style="color: var(--color-text);">Mensaje</label>
+          <label for="input-mensaje" class="text-sm font-medium" style="color: var(--color-text);">Mensaje</label>
           <textarea
+            id="input-mensaje"
             name="mensaje"
             rows="4"
             placeholder="Escribe tu mensaje aquí..."
-            required
             class="w-full px-4 py-3 rounded-xl border text-sm outline-none transition-all duration-200 resize-none"
             style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-text);"
-            onfocus="this.style.borderColor='var(--color-primary)'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)'"
-            onblur="this.style.borderColor='var(--color-border)'; this.style.boxShadow='none'"
+            aria-describedby="error-mensaje"
           ></textarea>
+          <span class="field-error" id="error-mensaje" role="alert"></span>
         </div>
-      
+
         <button
           type="submit"
           id="submit-btn"
@@ -83,89 +90,247 @@
         >
           Enviar mensaje
         </button>
-      
-      </form>
 
-      <script>
-        // Toast personalizado
-        function showToast(type: 'success' | 'error', title: string, desc: string) {
-          const toast = document.createElement('div');
-          toast.style.cssText = `
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 16px 20px;
-            border-radius: 14px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            background: ${type === 'success' ? '#f0fdf4' : '#fef2f2'};
-            border: 1px solid ${type === 'success' ? '#bbf7d0' : '#fecaca'};
-            max-width: 360px;
-            transform: translateY(80px);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-          `;
-      
-          toast.innerHTML = `
-            <div style="width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:${type === 'success' ? '#22c55e' : '#ef4444'}">
-              <svg width="11" height="11" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
-                ${type === 'success'
-                  ? '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>'
-                  : '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>'}
-              </svg>
-            </div>
-            <div>
-              <p style="font-weight:700;font-size:14px;color:${type === 'success' ? '#15803d' : '#dc2626'};margin:0 0 2px">${title}</p>
-              <p style="font-size:13px;color:${type === 'success' ? '#166534' : '#991b1b'};margin:0;opacity:0.8">${desc}</p>
-            </div>
-          `;
-      
-          document.body.appendChild(toast);
-      
-          requestAnimationFrame(() => {
-            toast.style.transform = 'translateY(0)';
-            toast.style.opacity = '1';
-          });
-      
-          setTimeout(() => {
-            toast.style.transform = 'translateY(80px)';
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 400);
-          }, 5000);
+    </form>
+
+    <style>
+      .field-error {
+        color: var(--color-error);
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        display: none;
+        min-height: 1rem;
+      }
+      .field-error.visible {
+        display: block;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+      .input-invalid {
+        border-color: var(--color-error) !important;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+      }
+      .input-valid {
+        border-color: var(--color-success) !important;
+        box-shadow: none;
+      }
+    </style>
+
+    <script>
+      // --- Validation rules ---
+
+      function validateNombre(val: string): string {
+        const v = val.trim();
+        if (!v) return 'El nombre es requerido.';
+        if (v.length < 2) return 'Mínimo 2 caracteres.';
+        if (v.length > 100) return 'Máximo 100 caracteres.';
+        if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'\-]+$/.test(v)) return 'Solo se permiten letras y espacios.';
+        return '';
+      }
+
+      function validateEmail(val: string): string {
+        const v = val.trim();
+        if (!v) return 'El correo electrónico es requerido.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Ingresa un correo electrónico válido.';
+        return '';
+      }
+
+      function validateTelefono(val: string): string {
+        const v = val.trim();
+        if (!v) return '';
+        if (!/^[\d\s+()\-]+$/.test(v)) return 'Solo se permiten números y caracteres telefónicos.';
+        const digits = v.replace(/\D/g, '');
+        if (digits.length < 7 || digits.length > 15) return 'El teléfono debe tener entre 7 y 15 dígitos.';
+        return '';
+      }
+
+      function validateAsunto(val: string): string {
+        const v = val.trim();
+        if (!v) return 'El asunto es requerido.';
+        if (v.length < 3) return 'Mínimo 3 caracteres.';
+        if (v.length > 150) return 'Máximo 150 caracteres.';
+        return '';
+      }
+
+      function validateMensaje(val: string): string {
+        const v = val.trim();
+        if (!v) return 'El mensaje es requerido.';
+        if (v.length < 10) return 'Mínimo 10 caracteres.';
+        if (v.length > 1000) return 'Máximo 1000 caracteres.';
+        return '';
+      }
+
+      // --- Field state helpers ---
+
+      function setFieldError(input: HTMLElement, errorEl: HTMLElement, message: string) {
+        input.classList.add('input-invalid');
+        input.classList.remove('input-valid');
+        errorEl.textContent = message;
+        errorEl.classList.add('visible');
+      }
+
+      function setFieldValid(input: HTMLElement, errorEl: HTMLElement) {
+        input.classList.remove('input-invalid');
+        input.classList.add('input-valid');
+        errorEl.textContent = '';
+        errorEl.classList.remove('visible');
+      }
+
+      function clearFieldState(input: HTMLElement, errorEl: HTMLElement) {
+        input.classList.remove('input-invalid', 'input-valid');
+        errorEl.textContent = '';
+        errorEl.classList.remove('visible');
+      }
+
+      function applyValidation(
+        input: HTMLInputElement | HTMLTextAreaElement,
+        errorEl: HTMLElement,
+        validate: (v: string) => string,
+        optional: boolean
+      ) {
+        if (!input.value.trim() && optional) {
+          clearFieldState(input, errorEl);
+          return;
         }
-      
-        const form = document.querySelector('form') as HTMLFormElement;
-        const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-      
-        form?.addEventListener('submit', async (e) => {
-          e.preventDefault();
-      
-          submitBtn.textContent = 'Enviando...';
-          submitBtn.disabled = true;
-      
-          const data = Object.fromEntries(new FormData(form));
-      
-          try {
-            const res = await fetch('/api/contacto', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-      
-            if (res.ok) {
-              showToast('success', 'Mensaje enviado', 'Te contactaremos pronto.');
-              form.reset();
-            } else {
-              throw new Error();
-            }
-          } catch {
-            showToast('error', 'Error al enviar', 'Por favor inténtalo de nuevo.');
-          } finally {
-            submitBtn.textContent = 'Enviar mensaje';
-            submitBtn.disabled = false;
+        const error = validate(input.value);
+        if (error) {
+          setFieldError(input, errorEl, error);
+        } else {
+          setFieldValid(input, errorEl);
+        }
+      }
+
+      // --- Toast ---
+
+      function showToast(type: 'success' | 'error', title: string, desc: string) {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 24px;
+          right: 24px;
+          z-index: 9999;
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px 20px;
+          border-radius: 14px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+          background: ${type === 'success' ? '#f0fdf4' : '#fef2f2'};
+          border: 1px solid ${type === 'success' ? '#bbf7d0' : '#fecaca'};
+          max-width: 360px;
+          transform: translateY(80px);
+          opacity: 0;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        `;
+        toast.innerHTML = `
+          <div style="width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;background:${type === 'success' ? '#22c55e' : '#ef4444'}">
+            <svg width="11" height="11" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
+              ${type === 'success'
+                ? '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>'
+                : '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>'}
+            </svg>
+          </div>
+          <div>
+            <p style="font-weight:700;font-size:14px;color:${type === 'success' ? '#15803d' : '#dc2626'};margin:0 0 2px">${title}</p>
+            <p style="font-size:13px;color:${type === 'success' ? '#166534' : '#991b1b'};margin:0;opacity:0.8">${desc}</p>
+          </div>
+        `;
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+          toast.style.transform = 'translateY(0)';
+          toast.style.opacity = '1';
+        });
+        setTimeout(() => {
+          toast.style.transform = 'translateY(80px)';
+          toast.style.opacity = '0';
+          setTimeout(() => toast.remove(), 400);
+        }, 5000);
+      }
+
+      // --- Wire up ---
+
+      const form = document.getElementById('contact-form-el') as HTMLFormElement;
+      const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+      const fieldDefs = [
+        { id: 'input-nombre',   errorId: 'error-nombre',   validate: validateNombre,   optional: false },
+        { id: 'input-email',    errorId: 'error-email',    validate: validateEmail,    optional: false },
+        { id: 'input-telefono', errorId: 'error-telefono', validate: validateTelefono, optional: true  },
+        { id: 'input-asunto',   errorId: 'error-asunto',   validate: validateAsunto,   optional: false },
+        { id: 'input-mensaje',  errorId: 'error-mensaje',  validate: validateMensaje,  optional: false },
+      ];
+
+      let submitAttempted = false;
+
+      fieldDefs.forEach(({ id, errorId, validate, optional }) => {
+        const input = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+        const errorEl = document.getElementById(errorId) as HTMLElement;
+
+        input.addEventListener('blur', () => {
+          applyValidation(input, errorEl, validate, optional);
+        });
+
+        input.addEventListener('input', () => {
+          if (submitAttempted) {
+            applyValidation(input, errorEl, validate, optional);
           }
         });
-      </script>
+      });
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitAttempted = true;
+
+        let firstInvalid: HTMLElement | null = null;
+
+        fieldDefs.forEach(({ id, errorId, validate, optional }) => {
+          const input = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+          const errorEl = document.getElementById(errorId) as HTMLElement;
+          applyValidation(input, errorEl, validate, optional);
+          if (input.classList.contains('input-invalid') && !firstInvalid) {
+            firstInvalid = input;
+          }
+        });
+
+        if (firstInvalid) {
+          (firstInvalid as HTMLElement).focus();
+          return;
+        }
+
+        submitBtn.textContent = 'Enviando...';
+        submitBtn.disabled = true;
+
+        const data = Object.fromEntries(new FormData(form));
+
+        try {
+          const res = await fetch('/api/contacto', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            showToast('success', 'Mensaje enviado', 'Te contactaremos pronto.');
+            form.reset();
+            submitAttempted = false;
+            fieldDefs.forEach(({ id, errorId }) => {
+              clearFieldState(
+                document.getElementById(id) as HTMLElement,
+                document.getElementById(errorId) as HTMLElement
+              );
+            });
+          } else {
+            throw new Error();
+          }
+        } catch {
+          showToast('error', 'Error al enviar', 'Por favor inténtalo de nuevo.');
+        } finally {
+          submitBtn.textContent = 'Enviar mensaje';
+          submitBtn.disabled = false;
+        }
+      });
+    </script>
+</div>
